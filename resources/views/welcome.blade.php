@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Constructora</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Scripts -->
+    @vite('resources/js/app.js')
 
         <!-- Styles -->
         <style>
@@ -32,13 +34,13 @@
                 </div>
             @endif
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 text-center">
                 <div class="flex-column justify-center pt-8 sm:justify-start sm:pt-0 text-center">
                     <h1>BIENVENIDO</h1>
                     <h2>Sistema de RRHH</h2>
                     <img src="{{ asset('images/bienvenida.webp') }}" alt="bienvenida" width="250px">
                 </div>
-
+                <a class="btn btn-secondary" href="{{ route('login') }}">Ingresar</a>
             </div>
         </div>
     </body>
