@@ -6,7 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">Ingreso</div>
-                <img src="{{ asset('images/bienvenida.webp') }}" class="img-fluid">
+                <div class="text-center">
+                    <img src="{{ asset('images/bienvenida.webp') }}" class="img-fluid" style="max-width: 350px">
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
