@@ -25,6 +25,10 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 text-center">
+                <div style="max-width:400px">
+                    <img src="{{ asset('images/logo_md.png') }}" alt="Concremaq" class="img-fluid">
+                </div>
+
                 <div class="flex-column justify-center pt-8 sm:justify-start sm:pt-0 text-center">
                     <h1>BIENVENIDO</h1>
                     <h2>Sistema de RRHH</h2>
