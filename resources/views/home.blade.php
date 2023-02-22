@@ -3,5 +3,5 @@
         <h2>INICIO - Bienvenido</h2>
         <hr>
     </div>
-    este es un panel
+    <strong>Usuario:</strong> {{ strToUpper(Auth::user()->name) }}
 </x-layouts.panel>

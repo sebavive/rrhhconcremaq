@@ -14,22 +14,22 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="{{route('home')}}" class="menu-link">
           <i class="menu-icon fa fa-home"></i>
           <div data-i18n="inicio">Inicio</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="{{route('employee.index')}}" class="menu-link">
           <i class="menu-icon fa fa-helmet-safety"></i>
           <div data-i18n="obreros">Obreros</div>
         </a>
       </li>
 
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="{{route('proyect.index')}}" class="menu-link">
           <i class="menu-icon fa fa-warehouse"></i>
-          <div data-i18n="Obras">Obras</div>
+          <div data-i18n="Proyectos">Proyectos</div>
         </a>
       </li>
 
@@ -56,9 +56,9 @@
         <span class="menu-header-text">Configuraciones</span>
       </li>
       <li class="menu-item">
-        <a href="pages-account-settings-account.html" class="menu-link">
-            <i class="menu-icon fa fa-money-bill-1-wave"></i>
-            <div data-i18n="sueldos">Sueldos</div>
+        <a href="{{route('attendance.index')}}" class="menu-link">
+            <i class="menu-icon fa fa-clock"></i>
+            <div data-i18n="asistencias">Asistencias</div>
         </a>
       </li>
       <li class="menu-item">

@@ -70,7 +70,7 @@
             <li>
                 <a class="dropdown-item" href="auth-login-basic.html">
 
-                <span class="align-middle"><form method="post" action="{{ route('logout') }}" >@csrf <button class="btn bg-transparent"><i class="bx bx-power-off me-2"></i> Salir</button> </span>
+                <span class="align-middle"><form method="post" action="{{ route('logout') }}" >@csrf <button class="btn bg-transparent"><i class="bx bx-power-off me-2"></i> Salir</button></form></span>
                 </a>
             </li>
 

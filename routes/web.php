@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\ProyectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +25,16 @@ Route::get('/', function () {
 
 Auth::routes(['register'=>false]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('login',function(){
+    return view('auth.login');
+})->name('login');
+
+Route::group(['middleware' => 'auth:web'], function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('employee', EmployeeController::class);
+    Route::resource('payroll', PayrollController::class);
+    Route::get('attendance',function(){
+        return view('attendance.index');
+    })->name('attendance.index');
+    Route::resource('proyect', ProyectController::class);
+});
