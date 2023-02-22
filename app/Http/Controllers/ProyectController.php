@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Proyect\ProyectStoreRequest;
 use App\Models\Proyect;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class ProyectController extends Controller
      */
     public function create()
     {
-        //
+        return view('proyect.create');
     }
 
     /**
@@ -34,9 +35,10 @@ class ProyectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProyectStoreRequest $request)
     {
-        //
+        $proyect = Proyect::create($request->all());
+        return redirect()->route('proyect.edit',$proyect)->with('success', 'Proyecto creado correctamente');
     }
 
     /**
@@ -58,7 +60,7 @@ class ProyectController extends Controller
      */
     public function edit(Proyect $proyect)
     {
-        //
+        return view('proyect.edit', compact('proyect'));
     }
 
     /**
@@ -68,9 +70,10 @@ class ProyectController extends Controller
      * @param  \App\Models\Proyect  $proyect
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proyect $proyect)
+    public function update(ProyectStoreRequest $request, Proyect $proyect)
     {
-        //
+        $proyect->update($request->validated());
+        return redirect()->back()->with('success', 'Proyecto actualizado correctamente');
     }
 
     /**
@@ -81,6 +84,8 @@ class ProyectController extends Controller
      */
     public function destroy(Proyect $proyect)
     {
-        //
+        $proyect->delete();
+        return response('Registro eliminado con éxito');
     }
+
 }

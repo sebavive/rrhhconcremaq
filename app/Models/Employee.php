@@ -16,4 +16,10 @@ class Employee extends Model
         return $this->hasOne(Payroll::class);
     }
 
+    public function proyects()
+    {
+        return $this->belongsToMany(Proyect::class, 'employee_proyects')
+            ->withPivot('role')
+            ->withTimestamps();
+    }
 }

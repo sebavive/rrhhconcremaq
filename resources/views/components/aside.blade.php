@@ -32,6 +32,12 @@
           <div data-i18n="Proyectos">Proyectos</div>
         </a>
       </li>
+      <li class="menu-item">
+        <a href="{{route('advance.index')}}" class="menu-link">
+            <i class="menu-icon fa-solid fa-coins"></i>
+            <div data-i18n="Proyectos">Adelantos</div>
+        </a>
+      </li>
 
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Liquidaciones</span>

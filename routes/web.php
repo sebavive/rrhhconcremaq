@@ -37,4 +37,11 @@ Route::group(['middleware' => 'auth:web'], function () {
         return view('attendance.index');
     })->name('attendance.index');
     Route::resource('proyect', ProyectController::class);
+
+    Route::delete('remove_employee/{employee}/{proyect}',[EmployeeController::class.'removeEmployee'])->name('employee.remove_employee');
+    Route::post('add_employee/{proyect}',[EmployeeController::class.'addEmployee'])->name('employee.add_employee');
+
+    Route::get('advance',function(){
+        return "No permitido";
+    })->name('advance.index');
 });

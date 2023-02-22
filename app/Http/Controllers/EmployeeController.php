@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Employee\EmployeeStoreRequest;
 use App\Models\Employee;
+use App\Models\Proyect;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -43,5 +44,19 @@ class EmployeeController extends Controller
     {
         $employee->delete();
         return response('Registro eliminado con éxito');
+    }
+
+    public function removeEmployee(Employee $employee, Proyect $proyect)
+    {
+        $employee->proyects()->detach($proyect);
+        return redirect()->route('proyect.edit',$proyect)->with('success', 'Empleado eliminado correctamente');
+    }
+
+    public function addEmployee(Proyect $proyect)
+    {
+        $employee = Employee::find(request()->employee);
+        return $employee;
+        $employee->proyects()->attach($proyect);
+        return redirect()->route('proyect.edit',$proyect)->with('success', 'Empleado agregado correctamente');
     }
 }
