@@ -54,9 +54,9 @@ class EmployeeController extends Controller
 
     public function addEmployee(Proyect $proyect)
     {
-        $employee = Employee::find(request()->employee);
-        return $employee;
-        $employee->proyects()->attach($proyect);
+        $employee = Employee::where('legal_id',request()->legal_id)->first();
+        return $employee->proyects();
+        $employee->proyects()->save($proyect->id);
         return redirect()->route('proyect.edit',$proyect)->with('success', 'Empleado agregado correctamente');
     }
 }

@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProyectController;
+use App\Http\Controllers\SalaryAdvanceController;
+use App\Http\Controllers\UserController;
+use App\Models\Proyect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,17 +35,19 @@ Route::get('login',function(){
 
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('user', UserController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('payroll', PayrollController::class);
-    Route::get('attendance',function(){
-        return view('attendance.index');
-    })->name('attendance.index');
+
+    Route::resource('attendance', AttendanceController::class);
+    Route::post('getData',[AttendanceController::class,'getData'])->name('attendance.getData');
+
     Route::resource('proyect', ProyectController::class);
 
-    Route::delete('remove_employee/{employee}/{proyect}',[EmployeeController::class.'removeEmployee'])->name('employee.remove_employee');
-    Route::post('add_employee/{proyect}',[EmployeeController::class.'addEmployee'])->name('employee.add_employee');
+    Route::delete('/remove_employee/{employee}/{proyect}',[EmployeeController::class.'removeEmployee'])->name('employee.remove_employee');
 
-    Route::get('advance',function(){
-        return "No permitido";
-    })->name('advance.index');
+    Route::post('/add_employee/{proyect}',[EmployeeController::class,'addEmployee'])->name('employee.add_employee');
+
+    Route::resource('salary-advances', SalaryAdvanceController::class);
 });

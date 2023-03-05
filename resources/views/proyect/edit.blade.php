@@ -93,7 +93,7 @@
                                 <td>
                                     <a href="{{ route('employee.edit', $worker) }}" class="btn btn-sm btn-warning"><i
                                             class="fas fa-edit"></i></a>
-                                    <form action="{{ route('remove_employee',[$worker,$proyect]) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('employee.remove_employee',[$worker,$proyect]) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>

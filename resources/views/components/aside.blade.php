@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="{{route('advance.index')}}" class="menu-link">
+        <a href="{{route('salary-advances.index')}}" class="menu-link">
             <i class="menu-icon fa-solid fa-coins"></i>
             <div data-i18n="Proyectos">Adelantos</div>
         </a>
@@ -68,7 +68,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="pages-account-settings-notifications.html" class="menu-link">
+        <a href="{{route('user.index')}}" class="menu-link">
             <i class="menu-icon fa fa-users"></i>
             <div data-i18n="usuarios">Usuarios</div>
         </a>

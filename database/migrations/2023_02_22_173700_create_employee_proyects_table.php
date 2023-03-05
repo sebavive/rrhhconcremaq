@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained();
             $table->foreignId('proyect_id')->constrained();
-            $table->string('role');
+            $table->string('role')->default('obrero');
             $table->timestamps();
         });
     }
