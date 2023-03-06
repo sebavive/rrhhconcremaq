@@ -76,9 +76,12 @@
                                 <td>{{ $attendance->employees->legal_id }}</td>
                                 <td>{{ $attendance->date }}</td>
                                 <td>{{ $attendance->created_at }}</td>
-                                <td><span class="badge bg-{{$attendance->type == 'entrada' ? 'success' : 'danger'}}">{{$attendance->type}}</span></td>
+                                <td><span
+                                        class="badge bg-{{ $attendance->type == 'entrada' ? 'success' : 'danger' }}">{{ $attendance->type }}</span>
+                                </td>
                                 <td>
-                                    <a href="{{ route('attendance.edit', $attendance->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ route('attendance.edit', $attendance->id) }}"
+                                        class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -90,16 +93,40 @@
 
 
     @section('scripts')
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script type='text/javascript' src='https://cdn.datatables.net/plug-ins/1.13.3/sorting/datetime-moment.js'></script>
         <script>
+            $.fn.dataTable.moment( 'YYYY/MM/DD' );
+            var hoy = moment().format('YYYY/MM/DD');
             $(document).ready(function() {
                 $('.table').DataTable({
+                    dom: 'QBfrtip',
+                    buttons: [
+                        'copy', 'excel', 'pdf'
+                    ],
+                    bLengthChange: false,
+                    searchBuilder: true,
                     language: {
-                        url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+                        url: "https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
                     },
-                    "columnDefs": [{
+                    columnDefs: [{
                         "orderable": false,
                         "targets": 3
                     }],
+                    searchBuilder:{
+                        preDefined: {
+                            criteria:[
+                            {
+                                title: 'Fecha',
+                                columns: 2,
+                                condition: 'between',
+                                value: [hoy, hoy],
+                                type: 'datetime'
+                            }
+                        ],
+                        logic: 'AND'
+                    },
+                }
                 });
             });
         </script>

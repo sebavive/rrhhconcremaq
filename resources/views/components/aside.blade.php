@@ -44,17 +44,7 @@
       </li>
       <li class="menu-item">
         <a href="pages-account-settings-account.html" class="menu-link">
-            <div data-i18n="listado">Listado</div>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="pages-account-settings-account.html" class="menu-link">
-            <div data-i18n="adelantos">Adelantos</div>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="pages-account-settings-notifications.html" class="menu-link">
-            <div data-i18n="creditos">Créditos</div>
+            <div data-i18n="listado">Planilla</div>
         </a>
       </li>
       {{-- CONFIGURACIONES --}}

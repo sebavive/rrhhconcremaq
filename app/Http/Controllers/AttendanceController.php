@@ -21,7 +21,8 @@ class AttendanceController extends Controller
     {
         $date = date('Y-m-d');
         $proyects = Proyect::all();
-        $attendances = Attendance::whereDate('created_at', $date)->orderBy('created_at','desc')->with('employees')->get();
+        $attendances = Attendance::all();
+        // $attendances = Attendance::whereDate('created_at', $date)->orderBy('created_at','desc')->with('employees')->get();
         return view('attendance.index',compact('proyects','attendances'));
     }
 
