@@ -9,6 +9,20 @@
         </div>
     </div>
     <hr>
+    @if($errors->any())
+        <div class="alert alert-danger my-3">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(session()->has('success'))
+        <div class="alert alert-success my-3">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="card col-6">
             <div class="card-body">
