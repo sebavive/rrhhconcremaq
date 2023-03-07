@@ -28,8 +28,6 @@
     <div class="row mt-3">
         <div class="card col-12">
             <div class="card-body table-responsive">
-                <h2>Planillas Cargadas</h2>
-                <hr>
                 <table class="table table-sm table-bordered table-hover" style="font-size:0.8rem">
                     <thead>
                         <tr>

@@ -43,7 +43,7 @@
         <span class="menu-header-text">Liquidaciones</span>
       </li>
       <li class="menu-item">
-        <a href="pages-account-settings-account.html" class="menu-link">
+        <a href="{{route('attendance.planilla')}}" class="menu-link">
             <div data-i18n="listado">Planilla</div>
         </a>
       </li>
