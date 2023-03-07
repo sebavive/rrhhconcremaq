@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::resource('attendance', AttendanceController::class);
     Route::post('getData',[AttendanceController::class,'getData'])->name('attendance.getData');
+    Route::get('planilla',[AttendanceController::class,'planilla'])->name('attendance.planilla');
 
     Route::resource('proyect', ProyectController::class);
 

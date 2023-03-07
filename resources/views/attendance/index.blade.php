@@ -58,15 +58,16 @@
             <div class="card-body">
                 <h2>Planillas Cargadas</h2>
                 <hr>
-                <table class="table table-sm table-striped table-hover">
+                <table class="table table-sm table-striped table-hover" style="font-size:0.8rem">
                     <thead>
                         <tr>
                             <th>Obrero</th>
                             <th>Documento</th>
                             <th>Fecha de Carga</th>
-                            <th>Registro</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Horas</th>
+                            <th>Acc</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,11 +75,10 @@
                             <tr>
                                 <td>{{ $attendance->employees->name }}</td>
                                 <td>{{ $attendance->employees->legal_id }}</td>
-                                <td>{{ $attendance->date }}</td>
-                                <td>{{ $attendance->created_at }}</td>
-                                <td><span
-                                        class="badge bg-{{ $attendance->type == 'entrada' ? 'success' : 'danger' }}">{{ $attendance->type }}</span>
-                                </td>
+                                <td>{{ date_format(date_create($attendance->date),'d-m-Y') }}</td>
+                                <td>{{ $attendance->indate!=null ? date_format(date_create($attendance->indate),'H:i') : ""  }}</td>
+                                <td>{{ $attendance->outdate!=null ? date_format(date_create($attendance->outdate),'H:i') : "" }}</td>
+                                <td>{!! $attendance->hours == 0 ? "<span class='badge bg-danger'>error</span>" : $attendance->hours  !!}</td>
                                 <td>
                                     <a href="{{ route('attendance.edit', $attendance->id) }}"
                                         class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>

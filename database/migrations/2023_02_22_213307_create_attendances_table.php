@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained();
             $table->foreignId('proyect_id')->constrained();
-            $table->dateTime('date');
-            $table->string('type');
+            $table->date('date')->nullable();
+            $table->dateTime('indate')->nullable();
+            $table->dateTime('outdate')->nullable();
             $table->integer('hours');
+            $table->bigInteger('invoice_id')->nullable();
             $table->timestamps();
         });
     }

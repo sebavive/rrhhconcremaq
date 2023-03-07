@@ -6,6 +6,8 @@ use App\Http\Requests\Employee\EmployeeStoreRequest;
 use App\Models\Employee;
 use App\Models\Proyect;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -24,7 +26,8 @@ class EmployeeController extends Controller
     {
         $employee = Employee::create($request->validated());
 
-        return redirect()->route('employee.edit',compact('employee'))
+        return redirect()
+            ->route('employee.edit', compact('employee'))
             ->with('success', 'Registro creado con éxito');
     }
 
@@ -49,14 +52,18 @@ class EmployeeController extends Controller
     public function removeEmployee(Employee $employee, Proyect $proyect)
     {
         $employee->proyects()->detach($proyect);
-        return redirect()->route('proyect.edit',$proyect)->with('success', 'Empleado eliminado correctamente');
+        return redirect()
+            ->route('proyect.edit', $proyect)
+            ->with('success', 'Empleado eliminado correctamente');
     }
 
     public function addEmployee(Proyect $proyect)
     {
-        $employee = Employee::where('legal_id',request()->legal_id)->first();
+        $employee = Employee::where('legal_id', request()->legal_id)->first();
         return $employee->proyects();
         $employee->proyects()->save($proyect->id);
-        return redirect()->route('proyect.edit',$proyect)->with('success', 'Empleado agregado correctamente');
+        return redirect()
+            ->route('proyect.edit', $proyect)
+            ->with('success', 'Empleado agregado correctamente');
     }
 }

@@ -4,8 +4,6 @@ namespace App\Imports;
 
 use App\Models\Attendance;
 use App\Models\Employee;
-use App\Models\Proyect;
-use Carbon\Carbon;
 use DateTime;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
