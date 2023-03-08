@@ -135,7 +135,7 @@ class AttendanceController extends Controller
         }
 
         if($request->hasFile('planilla')){
-            $path = $request->file('planilla')->getRealPath();
+            $path = $request->file('planilla');
 
             $theArray = Excel::toArray(new stdClass(), $path);
 
@@ -205,7 +205,7 @@ class AttendanceController extends Controller
                 }
             }
 
-            return redirect()->back()->with('success','Datos importados correctamente');
+            return redirect()->back()->with('success','Datos importados correctamente')->withInput();
         }
     }
 

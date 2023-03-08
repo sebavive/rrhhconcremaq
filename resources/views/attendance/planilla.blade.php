@@ -28,7 +28,7 @@
     <div class="row mt-3">
         <div class="card col-12">
             <div class="card-body table-responsive">
-                <table class="table table-sm table-bordered table-hover" style="font-size:0.8rem">
+                <table class="table table-bordered" style="font-size:0.8rem">
                     <thead>
                         <tr>
                             <th>Obrero</th>
@@ -40,7 +40,7 @@
                                 }
                             @endphp
                             @foreach ($dates as $date)
-                                <th>{{ date_format(date_create($date),'d-M') }}</th>
+                                <th width="120px">{{ date_format(date_create($date),'d-M') }}</th>
                             @endforeach
                         </tr>
                     </thead>
