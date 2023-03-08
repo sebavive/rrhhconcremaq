@@ -87,12 +87,10 @@ class AttendanceController extends Controller
             'proyect_id' => 'required',
             'employee_id' => 'required',
             'date' => 'required',
-            'type' => 'required'
         ],[
             'proyect_id.required' => 'El campo proyecto es obligatorio',
             'employee_id.required' => 'El campo empleado es obligatorio',
             'date.required' => 'El campo fecha es obligatorio',
-            'type.required' => 'El campo tipo es obligatorio'
         ]);
 
         if(!$validate){
@@ -105,7 +103,6 @@ class AttendanceController extends Controller
         $attendance->proyect_id = $request->proyect_id;
         $attendance->employee_id = $request->employee_id;
         $attendance->date = $date;
-        $attendance->type = $request->type;
         $attendance->save();
 
         return redirect()->back()->with('success','Asistencia actualizada correctamente');
@@ -144,6 +141,8 @@ class AttendanceController extends Controller
 
             $newArray = [];
 
+            // return $theArray;
+
             for($i = 1; $i < count($theArray[0]); $i++){
 
                 $employee = Employee::where('legal_id',$theArray[0][$i][0])->first();
@@ -167,6 +166,8 @@ class AttendanceController extends Controller
                 $newArray[$i]['date'] = $fecha->format('Y-m-d H:i:s');
                 $newArray[$i]['type'] = $theArray[0][$i][5] =="" ? "entrada" : "salida";
             }
+
+            // return $newArray;
 
             $grouped_data = array();
             foreach ($newArray as $item) {
@@ -203,8 +204,6 @@ class AttendanceController extends Controller
                     ]);
                 }
             }
-
-            $datos = Excel::import(new AttendanceImport, $path);
 
             return redirect()->back()->with('success','Datos importados correctamente');
         }
