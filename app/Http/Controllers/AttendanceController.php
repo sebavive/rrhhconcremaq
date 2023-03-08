@@ -204,8 +204,6 @@ class AttendanceController extends Controller
                 }
             }
 
-            return $grouped_data;
-
             $datos = Excel::import(new AttendanceImport, $path);
 
             return redirect()->back()->with('success','Datos importados correctamente');
